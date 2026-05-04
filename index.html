@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEATS Solutions - Decarbonization, Sustainability, Audit & Finance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        /* Delay animation stagger */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        /* Service card hover effect */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Navbar sticky effect */
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        /* Icon styles for services */
+        .service-icon {
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        /* CTA button hover */
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Solar theme backgrounds */
+        .solar-bg {
+            background: radial-gradient(circle at top, rgba(251, 191, 36, 0.1), transparent),
+                        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.1), transparent),
+                        linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        /* Mobile responsive improvements */
+        @media (max-width: 768px) {
+            .text-5xl { font-size: 1.875rem; }
+            .text-6xl { font-size: 2.25rem; }
+            .text-4xl { font-size: 1.875rem; }
+            .grid { gap: 1rem; }
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="solar_logo.png" alt="BEATS Solutions" class="h-12 w-auto">
+                </div>
+
+                <!-- Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-green-400 transition">Home</a>
+                    <a href="#about" class="hover:text-green-400 transition">About</a>
+                    <a href="#services" class="hover:text-green-400 transition">Services</a>
+                    <a href="#why-us" class="hover:text-green-400 transition">Why Us</a>
+                    <a href="#contact" class="hover:text-green-400 transition">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="menuBtn" class="md:hidden text-green-400 hover:text-green-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-2">
+                <a href="#home" class="block px-4 py-2 hover:bg-gray-900 rounded">Home</a>
+                <a href="#about" class="block px-4 py-2 hover:bg-gray-900 rounded">About</a>
+                <a href="#services" class="block px-4 py-2 hover:bg-gray-900 rounded">Services</a>
+                <a href="#why-us" class="block px-4 py-2 hover:bg-gray-900 rounded">Why Us</a>
+                <a href="#contact" class="block px-4 py-2 hover:bg-gray-900 rounded">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center solar-bg">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left content -->
+                <div class="animate-slideInLeft">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        India's <span class="gradient-text">Solar & Sustainability</span> Partner ☀️
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                        Simple solutions for clean energy, sustainability, and financial growth. BEATS Solutions helps your business go green while saving money and making a positive impact.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                        <button onclick="document.getElementById('contact').scrollIntoView(true)" class="btn-primary bg-green-500 hover:bg-green-600 text-black font-semibold px-6 md:px-8 py-3 rounded-lg text-sm md:text-base">
+                            Get Started
+                        </button>
+                        <button onclick="document.getElementById('services').scrollIntoView(true)" class="btn-primary border-2 border-green-500 text-green-400 hover:bg-green-500 hover:text-black font-semibold px-6 md:px-8 py-3 rounded-lg text-sm md:text-base">
+                            Our Services
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right visual -->
+                <div class="animate-slideInRight hidden md:block">
+                    <div class="relative w-full h-96">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-2xl blur-3xl"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-green-400/10 to-transparent rounded-2xl"></div>
+                        <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Solar panel representation -->
+                            <rect x="80" y="100" width="240" height="200" fill="none" stroke="#22c55e" stroke-width="3" rx="10"/>
+                            <line x1="100" y1="100" x2="100" y2="300" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                            <line x1="150" y1="100" x2="150" y2="300" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                            <line x1="200" y1="100" x2="200" y2="300" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                            <line x1="250" y1="100" x2="250" y2="300" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                            <line x1="300" y1="100" x2="300" y2="300" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+                            <circle cx="200" cy="50" r="20" fill="#fbbf24" stroke="#22c55e" stroke-width="2"/>
+                            <path d="M 200 30 Q 180 60 200 80 Q 220 60 200 30" fill="none" stroke="#fbbf24" stroke-width="1" opacity="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    About <span class="gradient-text">BEATS Solutions</span>
+                </h2>
+                <p class="text-xl text-gray-400">Making clean energy and sustainability simple for Indian businesses</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 md:gap-8">
+                <!-- Stat 1 -->
+                <div class="animate-fadeInUp delay-100 bg-gray-800 p-6 md:p-8 rounded-xl border border-gray-700 hover:border-green-500 transition">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">500+</div>
+                    <p class="text-gray-300 text-sm md:text-base">Projects Completed</p>
+                    <p class="text-xs text-gray-500 mt-2">Helping businesses go green</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="animate-fadeInUp delay-200 bg-gray-800 p-6 md:p-8 rounded-xl border border-gray-700 hover:border-green-500 transition">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">50+</div>
+                    <p class="text-gray-300 text-sm md:text-base">Expert Team</p>
+                    <p class="text-xs text-gray-500 mt-2">Solar and sustainability experts</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="animate-fadeInUp delay-300 bg-gray-800 p-6 md:p-8 rounded-xl border border-gray-700 hover:border-green-500 transition">
+                    <div class="text-3xl md:text-4xl font-bold gradient-text mb-2">2M+</div>
+                    <p class="text-gray-300 text-sm md:text-base">CO₂ Saved</p>
+                    <p class="text-xs text-gray-500 mt-2">Tonnes of pollution reduced</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 mb-12">
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    BEATS Solutions is India's trusted partner for clean energy and sustainability. We help businesses make the switch to solar power, reduce pollution, and improve their finances. With experience in solar projects, environmental checks, and carbon credits, we make going green simple and profitable.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 solar-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Our <span class="gradient-text">Services</span> ☀️
+                </h2>
+                <p class="text-lg md:text-xl text-gray-400">Simple solutions for your business to go green</p>
+            </div>
+
+            <!-- Service Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Solar & Green Energy -->
+                <div class="service-card animate-fadeInUp delay-100 bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-green-500">
+                    <div class="service-icon mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Solar & Green Energy</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Design & Engineering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>EPC (Engineering, Procurement, Construction)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Solar AMC (Annual Maintenance Contracts)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pollution & EIA -->
+                <div class="service-card animate-fadeInUp delay-200 bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-green-500">
+                    <div class="service-icon mb-4">🌍</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Pollution & EIA</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Air & Water Quality Audits</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Environmental Impact Assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>CTE/CTO Liaison & Compliance</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Energy & Building -->
+                <div class="service-card animate-fadeInUp delay-300 bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-green-500">
+                    <div class="service-icon mb-4">🏢</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Energy & Building</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>BEE Energy Audits</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>IGBC Certification</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>GRIHA Sustainability Standards</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Waste Management -->
+                <div class="service-card animate-fadeInUp delay-100 bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-green-500">
+                    <div class="service-icon mb-4">♻️</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Waste Management</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>EPR for Solar & E-Waste</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Zero Liquid Discharge (ZLD) Solutions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Waste Management Consulting</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Carbon & ESG -->
+                <div class="service-card animate-fadeInUp delay-200 bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-green-500">
+                    <div class="service-icon mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Carbon & ESG</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Carbon Credit Trading</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Carbon Footprint Analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>BRSR Reporting & ESG Strategy</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Custom Solutions -->
+                <div class="service-card animate-fadeInUp delay-300 bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-green-500">
+                    <div class="service-icon mb-4">🔧</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">Custom Solutions</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Tailored Consulting Services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Technology Integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-400 mr-3">✓</span>
+                            <span>Regulatory Compliance Support</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Why Choose <span class="gradient-text">BEATS Solutions?</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 md:gap-12">
+                <div class="space-y-4 md:space-y-6">
+                    <div class="animate-fadeInUp delay-100 flex gap-3 md:gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 md:h-12 w-10 md:w-12 rounded-md bg-green-500 text-black">
+                                <span class="text-lg md:text-xl">✓</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">20+ Years Experience</h3>
+                            <p class="text-gray-400 text-sm md:text-base">Proven track record in solar and green energy</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-fadeInUp delay-200 flex gap-3 md:gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 md:h-12 w-10 md:w-12 rounded-md bg-green-500 text-black">
+                                <span class="text-lg md:text-xl">✓</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Follow India Rules</h3>
+                            <p class="text-gray-400 text-sm md:text-base">Know all government regulations and rules</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-fadeInUp delay-300 flex gap-3 md:gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 md:h-12 w-10 md:w-12 rounded-md bg-green-500 text-black">
+                                <span class="text-lg md:text-xl">✓</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Expert Team</h3>
+                            <p class="text-gray-400 text-sm md:text-base">Trained professionals and solar specialists</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 md:space-y-6">
+                    <div class="animate-fadeInUp delay-100 flex gap-3 md:gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 md:h-12 w-10 md:w-12 rounded-md bg-green-500 text-black">
+                                <span class="text-lg md:text-xl">✓</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Save Money</h3>
+                            <p class="text-gray-400 text-sm md:text-base">Lower costs while going green and clean</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-fadeInUp delay-200 flex gap-3 md:gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 md:h-12 w-10 md:w-12 rounded-md bg-green-500 text-black">
+                                <span class="text-lg md:text-xl">✓</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Complete Support</h3>
+                            <p class="text-gray-400 text-sm md:text-base">Help from start to finish and beyond</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-fadeInUp delay-300 flex gap-3 md:gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-10 md:h-12 w-10 md:w-12 rounded-md bg-green-500 text-black">
+                                <span class="text-lg md:text-xl">✓</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg md:text-xl font-bold mb-1 md:mb-2">Clear Results</h3>
+                            <p class="text-gray-400 text-sm md:text-base">See your savings and impact with reports</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 solar-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    How to <span class="gradient-text">Contact Us</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-400">Get in touch to start your green journey today</p>
+            </div>
+
+            <!-- Quick Contact Info -->
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- Email -->
+                <div class="bg-gradient-to-br from-green-500/20 via-green-600/10 to-transparent p-8 md:p-12 rounded-2xl border-2 border-green-500 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/50 transition duration-300">
+                    <div class="text-5xl md:text-6xl mb-6">📧</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 gradient-text">Email</h3>
+                    <p class="text-gray-200 text-lg md:text-xl mb-3 font-semibold break-all">pushkarshri.1507@gmail.com</p>
+                    <p class="text-gray-400 text-base">Send us a message anytime for quick response</p>
+                </div>
+
+                <!-- Phone -->
+                <div class="bg-gradient-to-br from-green-500/20 via-green-600/10 to-transparent p-8 md:p-12 rounded-2xl border-2 border-green-500 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/50 transition duration-300">
+                    <div class="text-5xl md:text-6xl mb-6">📞</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 gradient-text">Phone</h3>
+                    <p class="text-gray-200 text-lg md:text-xl mb-3 font-semibold">+91 8400230000</p>
+                    <p class="text-gray-400 text-base">Call or WhatsApp us - Mon to Fri, 9AM-6PM</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Customer Testimonials Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 solar-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our <span class="gradient-text">Customers Say</span></h2>
+                <p class="text-gray-400 text-lg">Real stories from businesses that went solar with us</p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500/30 hover:border-green-500 transition">
+                    <div class="flex items-center mb-4">
+                        <img src="founder_image.png" alt="Customer 1" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-400">Manufacturing Business</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "My electricity bill reduced by <span class="text-green-400 font-bold">60%</span> after installing solar panels. The entire process was smooth - from consultation to installation took only 3 weeks. BEATS Solutions team was very helpful!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500/30 hover:border-green-500 transition">
+                    <div class="flex items-center mb-4">
+                        <img src="founder_image.png" alt="Customer 2" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Priya Singh</h4>
+                            <p class="text-sm text-gray-400">Hospital Owner</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "We saved <span class="text-green-400 font-bold">₹3 lakhs per year</span> on our power bills. The process was very easy - they handled all paperwork and government approvals. Best investment for our hospital!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500/30 hover:border-green-500 transition">
+                    <div class="flex items-center mb-4">
+                        <img src="founder_image.png" alt="Customer 3" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Amit Patel</h4>
+                            <p class="text-sm text-gray-400">Retail Shop Owner</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "My bill went from ₹15,000 to ₹6,000 per month. The entire team made it very simple - no stress, no complicated steps. Highly recommend to all business owners!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500/30 hover:border-green-500 transition">
+                    <div class="flex items-center mb-4">
+                        <img src="founder_image.png" alt="Customer 4" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Neha Gupta</h4>
+                            <p class="text-sm text-gray-400">School Principal</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "We cut our electricity costs by <span class="text-green-400 font-bold">55%</span>. The process was super smooth - they guided us every step. Now we can spend that money on student development!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500/30 hover:border-green-500 transition">
+                    <div class="flex items-center mb-4">
+                        <img src="founder_image.png" alt="Customer 5" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Vikram Singh</h4>
+                            <p class="text-sm text-gray-400">Factory Owner</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "My monthly bill reduced from ₹80,000 to ₹30,000. The team made everything simple and fast. Very professional and honest people!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-green-500/30 hover:border-green-500 transition">
+                    <div class="flex items-center mb-4">
+                        <img src="founder_image.png" alt="Customer 6" class="w-12 h-12 rounded-full object-cover border-2 border-green-500 mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Deepika Sharma</h4>
+                            <p class="text-sm text-gray-400">Hotel Manager</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-yellow-400 text-lg mb-2">⭐⭐⭐⭐⭐</p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "We save <span class="text-green-400 font-bold">₹2 lakhs every year</span>. Installation was smooth - zero downtime for our hotel. Great support team!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 solar-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-gradient-to-r from-gray-800 to-gray-900 p-8 md:p-12 rounded-xl border border-green-500/30">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text">Meet Our Founder</h2>
+
+                <div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+                    <!-- Founder Image - Smaller -->
+                    <div class="flex-shrink-0">
+                        <div class="rounded-lg overflow-hidden border-3 border-green-500 shadow-lg shadow-green-500/30 w-32 h-40 md:w-40 md:h-48">
+                            <img src="founder_image.png" alt="Founder" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Founder Details -->
+                    <div class="flex-1 text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-3 gradient-text">Founder & CEO</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-4">
+                            With over 20 years of experience in renewable energy and sustainability, our founder has helped over 500 Indian businesses go green. From small shops to big companies, he believes that clean energy and sustainability should be simple, affordable, and profitable.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            His mission is to make India greener by helping every business save money while protecting the environment. With BEATS Solutions, he's building a sustainable future for India.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="soloar_logo.png" alt="BEATS Solutions" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm">Solar • Sustainability • Clean Energy</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#home" class="hover:text-green-400 transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-green-400 transition">About</a></li>
+                        <li><a href="#services" class="hover:text-green-400 transition">Services</a></li>
+                        <li><a href="#contact" class="hover:text-green-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#services" class="hover:text-green-400 transition">Solar Energy</a></li>
+                        <li><a href="#services" class="hover:text-green-400 transition">Environmental Audits</a></li>
+                        <li><a href="#services" class="hover:text-green-400 transition">Carbon Trading</a></li>
+                        <li><a href="#services" class="hover:text-green-400 transition">Waste Management</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition">
+                            <span class="text-xl">f</span>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition">
+                            <span class="text-xl">𝕏</span>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition">
+                            <span class="text-xl">in</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">&copy; 2026 BEATS Solutions. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0 text-gray-500 text-sm">
+                    <a href="#" class="hover:text-green-400 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-green-400 transition">Terms of Service</a>
+                    <a href="#" class="hover:text-green-400 transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when link is clicked
+        const menuLinks = mobileMenu?.querySelectorAll('a');
+        menuLinks?.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+// Scroll animation for elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `${entry.target.dataset.animation} 0.8s ease-out forwards`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated elements
+        document.querySelectorAll('[data-animation]').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
